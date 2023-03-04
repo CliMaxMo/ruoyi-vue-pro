@@ -328,7 +328,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public boolean hasAnyPermissions(Long userId, String... permissions) {
         // 如果为空，说明已经有权限
-        if (ArrayUtil.isEmpty(permissions)) {
+         if (ArrayUtil.isEmpty(permissions)) {
             return true;
         }
 

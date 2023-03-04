@@ -126,6 +126,7 @@ resilience4j:
 # Actuator 监控端点的配置项
 management:
   endpoints:
+    enabled-by-default: false
     web:
       base-path: /actuator # Actuator 提供的 API 接口的根目录。默认为 /actuator
       exposure:

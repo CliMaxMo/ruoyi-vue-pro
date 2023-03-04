@@ -34,7 +34,7 @@ import java.util.Set;
  */
 @AutoConfiguration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-public class YudaoWebSecurityConfigurerAdapter {
+class YudaoWebSecurityConfigurerAdapter {
 
     @Resource
     private WebProperties webProperties;
@@ -108,7 +108,7 @@ public class YudaoWebSecurityConfigurerAdapter {
                 // 一堆自定义的 Spring Security 处理器
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
                 .accessDeniedHandler(accessDeniedHandler);
-        // 登录、登录暂时不使用 Spring Security 的拓展点，主要考虑一方面拓展多用户、多种登录方式相对复杂，一方面用户的学习成本较高
+        // 登录、登录暂时不使用 Spring Security 的拓展accessDeniedHandler点，主要考虑一方面拓展多用户、多种登录方式相对复杂，一方面用户的学习成本较高
 
         // 获得 @PermitAll 带来的 URL 列表，免登录
         Multimap<HttpMethod, String> permitAllUrls = getPermitAllUrlsFromAnnotations();
