@@ -1,5 +1,7 @@
 package cn.iocoder.yudao.module.mes.controller.admin.client;
 
+import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
+import cn.iocoder.yudao.framework.common.validation.InEnum;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
@@ -65,7 +67,7 @@ public class ClientController {
     @Operation(summary = "获得客户信息")
     @Parameter(name = "id", description = "编号", required = true, example = "1024")
     @PreAuthorize("@ss.hasPermission('mes:client:query')")
-    public CommonResult<ClientRespVO> getClient(@RequestParam("id") Long id) {
+    public CommonResult<ClientRespVO> getClient( @InEnum(CommonStatusEnum.class)int ids,@RequestParam("id") Long id) {
         ClientDO client = clientService.getClient(id);
         return success(ClientConvert.INSTANCE.convert(client));
     }

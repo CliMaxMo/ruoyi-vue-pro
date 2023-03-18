@@ -1,0 +1,46 @@
+{
+  //esnext 指的是最新版本
+  "compilerOptions": {
+    "target": "esnext", //目标语言版本 
+    "useDefineForClassFields": true, //此标志用作迁移到即将推出的类字段标准版本的一部分，默认：false。 todo
+    "module": "esnext", // 生成代码的模板标准
+    "moduleResolution": "node", //模块解析策略，ts默认用node的解析策略，即相对的方式导入
+    "strict": true, // 是否启动所有严格检查的总开关，默认：false，启动后将开启所有的严格检查选项。
+    "jsx": "preserve", // 指定 jsx 格式
+    "sourceMap": true, // 生成目标文件的sourceMap文件
+    "resolveJsonModule": true, // 是否解析 JSON 模块，默认：false。
+    "esModuleInterop": true, //允许export=导出，由import from 导入
+    "lib": ["esnext", "dom"], // // TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入"ES2019.Array"
+    "baseUrl": ".", // 解析非相对模块的基地址，默认是当前目录
+    "allowJs": true, //是否对js文件进行编译，默认：false。
+    "forceConsistentCasingInFileNames": true, //是否区分文件系统大小写规则，默认：false。
+    "allowSyntheticDefaultImports": true, //是否允许从没有默认导出的模块中默认导入，默认：false
+    "strictFunctionTypes": false, //是否启用对函数类型的严格检查，默认：false。
+    "noUnusedLocals": true, //是否检查未使用的局部变量，默认：false。
+    "noUnusedParameters": true, //是否检查未使用的局部变量，默认：false。
+    "experimentalDecorators": true,//是否启用对装饰器的实验性支持，装饰器是一种语言特性，还没有完全被 JavaScript 规范批准，默认：false。
+    "noImplicitAny": false, //不允许隐式的any类型
+    "skipLibCheck": true, //是否跳过声明文件的类型检查，这可以在编译期间以牺牲类型系统准确性为代价来节省时间，默认：false。
+    "paths": {
+      //映射路径，相当于baseURL
+      "@/*": ["src/*"]
+    },
+    "types": [  // 加载的声明文件包 用来指定需要包含的模块，并将其包含在全局范围内。
+      "@intlify/unplugin-vue-i18n/types",
+      "vite/client",
+      "element-plus/global",
+      "@types/intro.js",
+      "@types/qrcode",
+      "vite-plugin-svg-icons/client",
+      "@form-create/element-ui/types"
+    ],
+    "typeRoots": ["./node_modules/@types/", "./types"]
+  },
+  "include": [ //指定被编译文件所在的目录。
+    "src/**/*",
+    "types/**/*.d.ts",
+    "src/types/auto-imports.d.ts",
+    "src/types/auto-components.d.ts"
+  ],
+  "exclude": ["dist", "node_modules"] //指定不需要被编译的目录
+}

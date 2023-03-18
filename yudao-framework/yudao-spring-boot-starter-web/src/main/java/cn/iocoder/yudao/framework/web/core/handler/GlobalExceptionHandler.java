@@ -159,7 +159,7 @@ public class GlobalExceptionHandler {
         return CommonResult.error(BAD_REQUEST);
     }
 
-    /**
+    /**Validator
      * 处理 SpringMVC 请求地址不存在
      *
      * 注意，它需要设置如下两个配置项：
