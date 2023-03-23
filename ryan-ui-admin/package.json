@@ -22,7 +22,7 @@
     "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
-    "@form-create/designer": "^3.1.0",
+    "@form-create/designer": "^3.1.0", 
     "@form-create/element-ui": "^3.1.17",
     "@iconify/iconify": "^3.1.0",
     "@vueuse/core": "^9.12.0",
