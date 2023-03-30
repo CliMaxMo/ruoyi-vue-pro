@@ -52,7 +52,7 @@ import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import hljs from 'highlight.js' //导入代码高亮文件
 import 'highlight.js/styles/github.css' //导入代码高亮样式  新版
 
-import Logger from '@/utils/Logger'
+// import Logger from '@/utils/Logger'
 
 if (isDevMode() == true) {
   import('element-plus/dist/index.css')

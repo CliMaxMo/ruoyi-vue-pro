@@ -1,6 +1,6 @@
 {
   "name": "ryan-ui-admin",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "scripts": {
     "i": "pnpm install",

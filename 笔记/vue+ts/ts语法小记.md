@@ -1,3 +1,17 @@
+ts运行
+
+1. 编译，生成一个编译好的文件：hello.js
+
+```
+tsc hello.ts
+```
+
+2. 运行js文件
+
+```
+node hello.js
+```
+
 ## 1. import 和import type
 
 ```tsx

@@ -1,5 +1,6 @@
-import { en, zhCn } from "element-plus/es/locale";
-import { defineStore } from "pinia";
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/es/locale/lang/en'
+import { defineStore } from 'pinia'
 import { store } from '../index'
 import { CACHE_KEY, useCache } from '@/hooks/web/useCache'
 import { LocaleDropdownType } from '@/types/localeDropdown'
@@ -12,50 +13,45 @@ const elLocaleMap = {
 }
 
 interface LocaleState {
-    currentLocale: LocaleDropdownType
-    localeMap: LocaleDropdownType[]
+  currentLocale: LocaleDropdownType
+  localeMap: LocaleDropdownType[]
 }
-  
 
-export const useLocaleStore=defineStore('locales',{
-
-    state: () : LocaleState => {
-        return  {
-            currentLocale: {
-                lang: wsCache.get(CACHE_KEY.LANG) || 'zh-CN',
-                elLocale: elLocaleMap[wsCache.get(CACHE_KEY.LANG) || 'zh-CN']
-              },
-              // 多语言
-              localeMap: [
-                {
-                  lang: 'zh-CN',
-                  name: '简体中文'
-                },
-                {
-                  lang: 'en',
-                  name: 'English'
-                }
-              ]
-
+export const useLocaleStore = defineStore('locales', {
+  state: (): LocaleState => {
+    return {
+      currentLocale: {
+        lang: wsCache.get(CACHE_KEY.LANG) || 'zh-CN',
+        elLocale: elLocaleMap[wsCache.get(CACHE_KEY.LANG) || 'zh-CN']
+      },
+      // 多语言
+      localeMap: [
+        {
+          lang: 'zh-CN',
+          name: '简体中文'
+        },
+        {
+          lang: 'en',
+          name: 'English'
         }
-
-    },
-    getters: {
-        getCurrentLocale(): LocaleDropdownType {
-            return this.currentLocale
-          },
-          getLocaleMap(): LocaleDropdownType[] {
-            return this.localeMap
-          }
-    },
-    actions: {
-      setCurrentLocale(localeMap: LocaleDropdownType){
-        this.currentLocale.lang = localeMap?.lang
-        this.currentLocale.elLocale = elLocaleMap[localeMap?.lang]
-        wsCache.set(CACHE_KEY.LANG, localeMap?.lang)
-
-      }    
+      ]
     }
+  },
+  getters: {
+    getCurrentLocale(): LocaleDropdownType {
+      return this.currentLocale
+    },
+    getLocaleMap(): LocaleDropdownType[] {
+      return this.localeMap
+    }
+  },
+  actions: {
+    setCurrentLocale(localeMap: LocaleDropdownType) {
+      this.currentLocale.lang = localeMap?.lang
+      this.currentLocale.elLocale = elLocaleMap[localeMap?.lang]
+      wsCache.set(CACHE_KEY.LANG, localeMap?.lang)
+    }
+  }
 })
 
 export const useLocaleStoreWithOut = () => {
