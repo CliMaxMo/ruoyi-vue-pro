@@ -1151,7 +1151,7 @@ export default {
     return {
       greetingMessage: 'hello'
     }
-  }
+  }F
 }
 </script>
 
