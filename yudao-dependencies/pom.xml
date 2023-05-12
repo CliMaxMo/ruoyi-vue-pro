@@ -85,7 +85,7 @@
             <!-- 业务组件 -->
             <dependency>
                 <groupId>cn.iocoder.boot</groupId>
-                <artifactId>yudao-spring-boot-starter-banner</artifactId>
+                <artifactId>yudao-spring-boot-starter-banner</artifactId>r
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -224,7 +224,7 @@
             <!-- Job 定时任务相关 -->
             <dependency>
                 <groupId>cn.iocoder.boot</groupId>
-                <artifactId>yudao-spring-boot-starter-job</artifactId>
+                <artifactId>yudao-spring-boot-starter-job</artifactId>StringRedisTemplate 类
                 <version>${revision}</version>
             </dependency>
 

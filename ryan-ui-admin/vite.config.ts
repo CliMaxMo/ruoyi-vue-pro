@@ -76,6 +76,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }
       }
     },
+     esbuild: {
+    jsxFactory: undefined,
+    jsxInject: undefined,
+  },
     optimizeDeps: { include, exclude }
   }
 }

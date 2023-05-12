@@ -47,7 +47,7 @@
       </el-col>
       <el-col :span="12" style="padding-left: 10px; padding-right: 10px">
         <el-form-item>
-          <el-checkbox label="记住我" />
+          <el-checkbox label="记住我123" />
         </el-form-item>
       </el-col>
       <el-col :span="12" style="padding-left: 10px; padding-right: 10px" class="flex justify-end">

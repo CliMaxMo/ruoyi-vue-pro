@@ -19,7 +19,7 @@
             enter-active-class="animate__animated animate__bounceInLeft"
           >
             <img src="@/assets/svgs/login-box-bg.svg" alt="" key="1" class="w-350px" />
-            <div key="2" class="text-center text-white text-3xl">{{ t('login.welcome') }}</div>
+            <div key="2" class="text-center text-white text-3xl">345</div>
             <div class="mt-5 font-normal text-white text-14px text-center" key="3">
               {{ t('login.message') }}
             </div>
