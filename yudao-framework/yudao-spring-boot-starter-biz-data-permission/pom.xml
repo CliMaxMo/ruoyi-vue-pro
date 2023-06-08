@@ -14,6 +14,7 @@
     <name>${project.artifactId}</name>
     <description>数据权限</description>
     <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
+<!--    具体可以查看笔记vue-pro下的数据权限处理-->
 
     <dependencies>
         <dependency>

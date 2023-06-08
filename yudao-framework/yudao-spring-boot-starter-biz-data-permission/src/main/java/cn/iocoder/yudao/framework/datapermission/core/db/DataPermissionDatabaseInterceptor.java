@@ -63,7 +63,7 @@ public class DataPermissionDatabaseInterceptor extends JsqlParserSupport impleme
         try {
             // 初始化上下文
             ContextHolder.init(rules);
-            // 处理 SQL
+            // 重新设置处理 SQL
             mpBs.sql(parserSingle(mpBs.sql(), null));
         } finally {
             // 添加是否需要重写的缓存
