@@ -14,6 +14,7 @@ import cn.iocoder.yudao.module.infra.dal.dataobject.codegen.CodegenTableDO;
 import cn.iocoder.yudao.module.infra.dal.mysql.codegen.CodegenColumnMapper;
 import cn.iocoder.yudao.module.infra.dal.mysql.codegen.CodegenTableMapper;
 import cn.iocoder.yudao.module.infra.enums.codegen.CodegenSceneEnum;
+import cn.iocoder.yudao.module.infra.framework.codegen.config.CodegenProperties;
 import cn.iocoder.yudao.module.infra.service.codegen.inner.CodegenBuilder;
 import cn.iocoder.yudao.module.infra.service.codegen.inner.CodegenEngine;
 import cn.iocoder.yudao.module.infra.service.db.DatabaseTableService;
@@ -58,6 +59,9 @@ public class CodegenServiceImpl implements CodegenService {
     @Resource
     private CodegenEngine codegenEngine;
 
+    @Resource
+    private CodegenProperties codegenProperties;
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public List<Long> createCodegenList(Long userId, CodegenCreateListReqVO reqVO) {
@@ -87,6 +91,7 @@ public class CodegenServiceImpl implements CodegenService {
         CodegenTableDO table = codegenBuilder.buildTable(tableInfo);
         table.setDataSourceConfigId(dataSourceConfigId);
         table.setScene(CodegenSceneEnum.ADMIN.getScene()); // 默认配置下，使用管理后台的模板
+        table.setFrontType(codegenProperties.getFrontType());
         table.setAuthor(userApi.getUser(userId).getNickname());
         codegenTableMapper.insert(table);
 
@@ -158,7 +163,7 @@ public class CodegenServiceImpl implements CodegenService {
 
         //计算需要修改的字段，插入时重新插入，删除时将原来的删除
         BiPredicate<TableField, CodegenColumnDO> pr =
-                (tableField, codegenColumn) -> tableField.getType().equals(codegenColumn.getDataType())
+                (tableField, codegenColumn) -> tableField.getMetaInfo().getJdbcType().name().equals(codegenColumn.getDataType())
                         && tableField.getMetaInfo().isNullable() == codegenColumn.getNullable()
                         && tableField.isKeyFlag() == codegenColumn.getPrimaryKey()
                         && tableField.getComment().equals(codegenColumn.getColumnComment());
